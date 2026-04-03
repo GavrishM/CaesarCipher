@@ -56,6 +56,20 @@ namespace test
                         Chars = chars;
                         break;
                     }
+                case "main":
+                    {
+                        char[] chars = new char[200];
+                        chars = ( "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+                        /*    */+ "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+                        /*    */+ "abcdefghijklmnopqrstuvwxyz"
+                        /*    */+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        /*    */+ "0123456789"
+                        /*    */+ " .,;:-=+_!&?/()`~@№#$%^*[{}]|'<>"
+                        /*    */+ '"'
+                        /*    */).ToCharArray();
+                        Chars = chars;
+                        break;
+                    }
             }
 
         }
