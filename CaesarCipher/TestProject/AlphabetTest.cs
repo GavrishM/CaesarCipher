@@ -13,7 +13,7 @@ namespace TestProject
         {
             
             Alphabet alphabet = new Alphabet("main");
-            char[] expected = new char[200];
+            char[] expected = new char[161];
 
             expected = ("абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
             /*       */+ "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"

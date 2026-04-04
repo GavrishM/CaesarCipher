@@ -51,14 +51,14 @@ namespace ClassLibrary
                     }
                 case "sp":
                     {
-                        char[] chars = new char[50];
-                        chars = " .,;:-=+_!&?/".ToCharArray(); //тут добавить все символы, которые могут быть в тексте, но изменяться не должны.
+                        char[] chars = new char[33];
+                        chars = (" .,;:-=+_!&?/()`~@№#$%^*[{}]|'<>" + '"').ToCharArray(); //тут добавить все символы, которые могут быть в тексте, но изменяться не должны.
                         Chars = chars;
                         break;
                     }
                 case "main":
                     {
-                        char[] chars = new char[200];
+                        char[] chars = new char[161];
                         chars = ("абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
                         /*    */+ "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
                         /*    */+ "abcdefghijklmnopqrstuvwxyz"
