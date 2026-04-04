@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibrary;
+using System.Runtime.InteropServices;
 
 namespace TestProject
 {
@@ -10,8 +11,20 @@ namespace TestProject
         [TestMethod]
         public void ConstructorTest()
         {
-            Alphabet alphabet = new Alphabet();
+            
+            Alphabet alphabet = new Alphabet("main");
+            char[] expected = new char[200];
 
+            expected = ("абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+            /*       */+ "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+            /*       */+ "abcdefghijklmnopqrstuvwxyz"
+            /*       */+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            /*       */+ "0123456789"
+            /*       */+ " .,;:-=+_!&?/()`~@№#$%^*[{}]|'<>"
+            /*       */+ '"'
+            /*       */).ToCharArray();
+
+            CollectionAssert.AreEqual(expected, alphabet.Chars);
         }
     }
 }
