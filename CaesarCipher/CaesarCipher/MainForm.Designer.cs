@@ -39,6 +39,7 @@
             this.ExportToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.CipherToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DecipherToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ClearToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).BeginInit();
             this.TextPanel.SuspendLayout();
@@ -58,6 +59,11 @@
             // 
             this.InputKeyNumeric.Dock = System.Windows.Forms.DockStyle.Top;
             this.InputKeyNumeric.Location = new System.Drawing.Point(0, 0);
+            this.InputKeyNumeric.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.InputKeyNumeric.Name = "InputKeyNumeric";
             this.InputKeyNumeric.Size = new System.Drawing.Size(800, 20);
             this.InputKeyNumeric.TabIndex = 3;
@@ -100,7 +106,8 @@
             this.ImportToolStripButton,
             this.ExportToolStripButton,
             this.CipherToolStripButton,
-            this.DecipherToolStripButton});
+            this.DecipherToolStripButton,
+            this.ClearToolStripButton});
             this.MainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.MainToolStrip.Name = "MainToolStrip";
             this.MainToolStrip.Size = new System.Drawing.Size(800, 25);
@@ -109,43 +116,47 @@
             // 
             // ImportToolStripButton
             // 
-            this.ImportToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ImportToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ImportToolStripButton.Image")));
             this.ImportToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ImportToolStripButton.Name = "ImportToolStripButton";
-            this.ImportToolStripButton.Size = new System.Drawing.Size(55, 22);
+            this.ImportToolStripButton.Size = new System.Drawing.Size(71, 22);
             this.ImportToolStripButton.Text = "Импорт";
             this.ImportToolStripButton.Click += new System.EventHandler(this.ImportToolStripButton_Click);
             // 
             // ExportToolStripButton
             // 
-            this.ExportToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ExportToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ExportToolStripButton.Image")));
             this.ExportToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExportToolStripButton.Name = "ExportToolStripButton";
-            this.ExportToolStripButton.Size = new System.Drawing.Size(56, 22);
+            this.ExportToolStripButton.Size = new System.Drawing.Size(72, 22);
             this.ExportToolStripButton.Text = "Экспорт";
             this.ExportToolStripButton.Click += new System.EventHandler(this.ExportToolStripButton_Click);
             // 
             // CipherToolStripButton
             // 
-            this.CipherToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.CipherToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("CipherToolStripButton.Image")));
             this.CipherToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.CipherToolStripButton.Name = "CipherToolStripButton";
-            this.CipherToolStripButton.Size = new System.Drawing.Size(88, 22);
+            this.CipherToolStripButton.Size = new System.Drawing.Size(104, 22);
             this.CipherToolStripButton.Text = "Зашифровать";
             this.CipherToolStripButton.Click += new System.EventHandler(this.CipherToolStripButton_Click);
             // 
             // DecipherToolStripButton
             // 
-            this.DecipherToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.DecipherToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("DecipherToolStripButton.Image")));
             this.DecipherToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DecipherToolStripButton.Name = "DecipherToolStripButton";
-            this.DecipherToolStripButton.Size = new System.Drawing.Size(94, 22);
+            this.DecipherToolStripButton.Size = new System.Drawing.Size(110, 22);
             this.DecipherToolStripButton.Text = "Расшифровать";
             this.DecipherToolStripButton.Click += new System.EventHandler(this.DecipherToolStripButton_Click);
+            // 
+            // ClearToolStripButton
+            // 
+            this.ClearToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearToolStripButton.Image")));
+            this.ClearToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ClearToolStripButton.Name = "ClearToolStripButton";
+            this.ClearToolStripButton.Size = new System.Drawing.Size(188, 22);
+            this.ClearToolStripButton.Text = "Очистить поля ввода\\вывода";
             // 
             // MainForm
             // 
@@ -179,6 +190,7 @@
         private System.Windows.Forms.ToolStripButton ExportToolStripButton;
         private System.Windows.Forms.ToolStripButton CipherToolStripButton;
         private System.Windows.Forms.ToolStripButton DecipherToolStripButton;
+        private System.Windows.Forms.ToolStripButton ClearToolStripButton;
     }
 }
 
