@@ -30,75 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.InputKeyNumeric = new System.Windows.Forms.NumericUpDown();
-            this.TextPanel = new System.Windows.Forms.Panel();
-            this.TextOutputTextBox = new System.Windows.Forms.TextBox();
-            this.TextInputTextBox = new System.Windows.Forms.TextBox();
             this.MainToolStrip = new System.Windows.Forms.ToolStrip();
             this.ImportToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ExportToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.CipherToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DecipherToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ClearToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.InputKeyNumeric = new System.Windows.Forms.NumericUpDown();
+            this.TextInputTextBox = new System.Windows.Forms.TextBox();
+            this.TextOutputTextBox = new System.Windows.Forms.TextBox();
             this.MainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).BeginInit();
-            this.TextPanel.SuspendLayout();
             this.MainToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPanel
             // 
-            this.MainPanel.Controls.Add(this.TextPanel);
+            this.MainPanel.Controls.Add(this.TextOutputTextBox);
+            this.MainPanel.Controls.Add(this.TextInputTextBox);
+            this.MainPanel.Controls.Add(this.InputKeyNumeric);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 25);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(800, 425);
             this.MainPanel.TabIndex = 0;
-            // 
-            // InputKeyNumeric
-            // 
-            this.InputKeyNumeric.Dock = System.Windows.Forms.DockStyle.Top;
-            this.InputKeyNumeric.Location = new System.Drawing.Point(0, 0);
-            this.InputKeyNumeric.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.InputKeyNumeric.Name = "InputKeyNumeric";
-            this.InputKeyNumeric.Size = new System.Drawing.Size(800, 20);
-            this.InputKeyNumeric.TabIndex = 3;
-            this.InputKeyNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TextPanel
-            // 
-            this.TextPanel.Controls.Add(this.TextOutputTextBox);
-            this.TextPanel.Controls.Add(this.TextInputTextBox);
-            this.TextPanel.Controls.Add(this.InputKeyNumeric);
-            this.TextPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextPanel.Location = new System.Drawing.Point(0, 0);
-            this.TextPanel.Name = "TextPanel";
-            this.TextPanel.Size = new System.Drawing.Size(800, 425);
-            this.TextPanel.TabIndex = 1;
-            // 
-            // TextOutputTextBox
-            // 
-            this.TextOutputTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextOutputTextBox.Location = new System.Drawing.Point(400, 20);
-            this.TextOutputTextBox.Multiline = true;
-            this.TextOutputTextBox.Name = "TextOutputTextBox";
-            this.TextOutputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TextOutputTextBox.Size = new System.Drawing.Size(400, 405);
-            this.TextOutputTextBox.TabIndex = 1;
-            // 
-            // TextInputTextBox
-            // 
-            this.TextInputTextBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TextInputTextBox.Location = new System.Drawing.Point(0, 20);
-            this.TextInputTextBox.Multiline = true;
-            this.TextInputTextBox.Name = "TextInputTextBox";
-            this.TextInputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TextInputTextBox.Size = new System.Drawing.Size(400, 405);
-            this.TextInputTextBox.TabIndex = 0;
             // 
             // MainToolStrip
             // 
@@ -158,6 +113,40 @@
             this.ClearToolStripButton.Size = new System.Drawing.Size(188, 22);
             this.ClearToolStripButton.Text = "Очистить поля ввода\\вывода";
             // 
+            // InputKeyNumeric
+            // 
+            this.InputKeyNumeric.Dock = System.Windows.Forms.DockStyle.Top;
+            this.InputKeyNumeric.Location = new System.Drawing.Point(0, 0);
+            this.InputKeyNumeric.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.InputKeyNumeric.Name = "InputKeyNumeric";
+            this.InputKeyNumeric.Size = new System.Drawing.Size(800, 20);
+            this.InputKeyNumeric.TabIndex = 3;
+            this.InputKeyNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // TextInputTextBox
+            // 
+            this.TextInputTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TextInputTextBox.Location = new System.Drawing.Point(0, 20);
+            this.TextInputTextBox.Multiline = true;
+            this.TextInputTextBox.Name = "TextInputTextBox";
+            this.TextInputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TextInputTextBox.Size = new System.Drawing.Size(400, 405);
+            this.TextInputTextBox.TabIndex = 0;
+            // 
+            // TextOutputTextBox
+            // 
+            this.TextOutputTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextOutputTextBox.Location = new System.Drawing.Point(400, 20);
+            this.TextOutputTextBox.Multiline = true;
+            this.TextOutputTextBox.Name = "TextOutputTextBox";
+            this.TextOutputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TextOutputTextBox.Size = new System.Drawing.Size(400, 405);
+            this.TextOutputTextBox.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,11 +157,10 @@
             this.Name = "MainForm";
             this.Text = "Главное меню";
             this.MainPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).EndInit();
-            this.TextPanel.ResumeLayout(false);
-            this.TextPanel.PerformLayout();
+            this.MainPanel.PerformLayout();
             this.MainToolStrip.ResumeLayout(false);
             this.MainToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,16 +169,15 @@
         #endregion
 
         private System.Windows.Forms.Panel MainPanel;
-        private System.Windows.Forms.Panel TextPanel;
-        private System.Windows.Forms.TextBox TextInputTextBox;
-        private System.Windows.Forms.TextBox TextOutputTextBox;
-        private System.Windows.Forms.NumericUpDown InputKeyNumeric;
         private System.Windows.Forms.ToolStrip MainToolStrip;
         private System.Windows.Forms.ToolStripButton ImportToolStripButton;
         private System.Windows.Forms.ToolStripButton ExportToolStripButton;
         private System.Windows.Forms.ToolStripButton CipherToolStripButton;
         private System.Windows.Forms.ToolStripButton DecipherToolStripButton;
         private System.Windows.Forms.ToolStripButton ClearToolStripButton;
+        private System.Windows.Forms.TextBox TextOutputTextBox;
+        private System.Windows.Forms.TextBox TextInputTextBox;
+        private System.Windows.Forms.NumericUpDown InputKeyNumeric;
     }
 }
 
