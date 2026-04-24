@@ -30,18 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.TextOutputTextBox = new System.Windows.Forms.TextBox();
+            this.TextInputTextBox = new System.Windows.Forms.TextBox();
+            this.InputKeyNumeric = new System.Windows.Forms.NumericUpDown();
             this.MainToolStrip = new System.Windows.Forms.ToolStrip();
             this.ImportToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ExportToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.CipherToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DecipherToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ClearToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.InputKeyNumeric = new System.Windows.Forms.NumericUpDown();
-            this.TextInputTextBox = new System.Windows.Forms.TextBox();
-            this.TextOutputTextBox = new System.Windows.Forms.TextBox();
             this.MainPanel.SuspendLayout();
-            this.MainToolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).BeginInit();
+            this.MainToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -54,6 +54,40 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(800, 425);
             this.MainPanel.TabIndex = 0;
+            // 
+            // TextOutputTextBox
+            // 
+            this.TextOutputTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextOutputTextBox.Location = new System.Drawing.Point(400, 20);
+            this.TextOutputTextBox.Multiline = true;
+            this.TextOutputTextBox.Name = "TextOutputTextBox";
+            this.TextOutputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TextOutputTextBox.Size = new System.Drawing.Size(400, 405);
+            this.TextOutputTextBox.TabIndex = 1;
+            // 
+            // TextInputTextBox
+            // 
+            this.TextInputTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TextInputTextBox.Location = new System.Drawing.Point(0, 20);
+            this.TextInputTextBox.Multiline = true;
+            this.TextInputTextBox.Name = "TextInputTextBox";
+            this.TextInputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TextInputTextBox.Size = new System.Drawing.Size(400, 405);
+            this.TextInputTextBox.TabIndex = 0;
+            // 
+            // InputKeyNumeric
+            // 
+            this.InputKeyNumeric.Dock = System.Windows.Forms.DockStyle.Top;
+            this.InputKeyNumeric.Location = new System.Drawing.Point(0, 0);
+            this.InputKeyNumeric.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.InputKeyNumeric.Name = "InputKeyNumeric";
+            this.InputKeyNumeric.Size = new System.Drawing.Size(800, 20);
+            this.InputKeyNumeric.TabIndex = 3;
+            this.InputKeyNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // MainToolStrip
             // 
@@ -112,40 +146,7 @@
             this.ClearToolStripButton.Name = "ClearToolStripButton";
             this.ClearToolStripButton.Size = new System.Drawing.Size(188, 22);
             this.ClearToolStripButton.Text = "Очистить поля ввода\\вывода";
-            // 
-            // InputKeyNumeric
-            // 
-            this.InputKeyNumeric.Dock = System.Windows.Forms.DockStyle.Top;
-            this.InputKeyNumeric.Location = new System.Drawing.Point(0, 0);
-            this.InputKeyNumeric.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.InputKeyNumeric.Name = "InputKeyNumeric";
-            this.InputKeyNumeric.Size = new System.Drawing.Size(800, 20);
-            this.InputKeyNumeric.TabIndex = 3;
-            this.InputKeyNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // TextInputTextBox
-            // 
-            this.TextInputTextBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.TextInputTextBox.Location = new System.Drawing.Point(0, 20);
-            this.TextInputTextBox.Multiline = true;
-            this.TextInputTextBox.Name = "TextInputTextBox";
-            this.TextInputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TextInputTextBox.Size = new System.Drawing.Size(400, 405);
-            this.TextInputTextBox.TabIndex = 0;
-            // 
-            // TextOutputTextBox
-            // 
-            this.TextOutputTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextOutputTextBox.Location = new System.Drawing.Point(400, 20);
-            this.TextOutputTextBox.Multiline = true;
-            this.TextOutputTextBox.Name = "TextOutputTextBox";
-            this.TextOutputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TextOutputTextBox.Size = new System.Drawing.Size(400, 405);
-            this.TextOutputTextBox.TabIndex = 1;
+            this.ClearToolStripButton.Click += new System.EventHandler(this.ClearToolStripButton_Click);
             // 
             // MainForm
             // 
@@ -158,9 +159,9 @@
             this.Text = "Главное меню";
             this.MainPanel.ResumeLayout(false);
             this.MainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).EndInit();
             this.MainToolStrip.ResumeLayout(false);
             this.MainToolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

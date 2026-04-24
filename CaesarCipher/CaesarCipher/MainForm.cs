@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace CaesarCipher
 {
     public partial class MainForm: Form
     {
+        private Alphabet alphabet_;
+        private Cipher cipher_;
         public MainForm()
         {
             InitializeComponent();
+            alphabet_ = new Alphabet("main");
+            cipher_ = new Cipher(alphabet_);
         }
 
         private void ImportToolStripButton_Click(object sender, EventArgs e)
@@ -33,6 +38,11 @@ namespace CaesarCipher
         }
 
         private void DecipherToolStripButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearToolStripButton_Click(object sender, EventArgs e)
         {
 
         }
