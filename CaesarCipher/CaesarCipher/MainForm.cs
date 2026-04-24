@@ -26,22 +26,30 @@ namespace CaesarCipher
 
         private void ImportToolStripButton_Click(object sender, EventArgs e)
         {
-            
+            string path = "";
+            inputOutput_.InputFromFile(path);
         }
 
         private void ExportToolStripButton_Click(object sender, EventArgs e)
         {
-
+            string path = "";
+            inputOutput_.OutputResult("", "");
         }
 
         private void CipherToolStripButton_Click(object sender, EventArgs e)
         {
-
+            string originalText = TextInputTextBox.Text;
+            int key = inputOutput_.InputKey(InputKeyNumeric.Value);
+            string encryptedText = cipher_.EncryptData(originalText, key);
+            TextOutputTextBox.Text = encryptedText;
         }
 
         private void DecipherToolStripButton_Click(object sender, EventArgs e)
         {
-
+            string encryptedText = TextInputTextBox.Text;
+            int key = inputOutput_.InputKey(InputKeyNumeric.Value);
+            string originalText = cipher_.DecryptData(encryptedText, key);
+            TextOutputTextBox.Text = originalText;
         }
 
         private void ClearToolStripButton_Click(object sender, EventArgs e)

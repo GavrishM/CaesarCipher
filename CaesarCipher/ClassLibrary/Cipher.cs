@@ -14,5 +14,28 @@ namespace ClassLibrary
             Alphabet = alphabet;
         }
 
+        public string EncryptData(string originalText, int key)
+        {
+            string result = "";
+            int temp = 0;
+            foreach(char c in originalText)
+            {
+                if (Alphabet.Chars.Contains(c))
+                {
+
+                }
+            }
+            result = originalText;
+            //...
+            return result;
+        }
+
+        public string DecryptData(string encryptedText, int key)
+        {
+            string result = "";
+            result = encryptedText;
+            //...
+            return result;
+        }
     }
 }
