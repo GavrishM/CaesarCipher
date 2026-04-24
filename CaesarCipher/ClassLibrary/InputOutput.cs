@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    class InputOutput
+    public class InputOutput
     {
         public int InputKey(decimal key) 
         {
