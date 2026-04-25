@@ -16,7 +16,7 @@ namespace ClassLibrary
 
         public string EncryptData(string originalText, int key)
         {
-            Char[] Chars = Alphabet.Chars;
+            Char[] Chars = Alphabet.Chars; //заменить на поле
             string result = "";
             int temp = 0;
             key %= Chars.Length;
@@ -27,10 +27,6 @@ namespace ClassLibrary
                     temp = Array.IndexOf(Chars, c);
                     temp += key;
                     temp %= Chars.Length;
-                    //while (temp > Chars.Length -1)
-                    //{
-                    //    temp -= Chars.Length;
-                    //}
                     result += Chars[temp];
                 }
                 else
@@ -43,7 +39,7 @@ namespace ClassLibrary
 
         public string DecryptData(string encryptedText, int key)
         {
-            Char[] Chars = Alphabet.Chars;
+            Char[] Chars = Alphabet.Chars; //заменить на поле
             string result = "";
             int temp = 0;
             key %= Chars.Length;

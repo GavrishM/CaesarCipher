@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ClassLibrary
 {
@@ -17,7 +18,7 @@ namespace ClassLibrary
         public string InputFromFile(string filePath)
         {
             string result;
-            result = "";//dodelat
+            result = File.ReadAllText(filePath);
             return result;
         }
         public string InputFromProgram(string text)

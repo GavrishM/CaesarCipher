@@ -27,7 +27,12 @@ namespace CaesarCipher
         private void ImportToolStripButton_Click(object sender, EventArgs e)
         {
             string path = "";
-            inputOutput_.InputFromFile(path);
+            var dialog = new OpenFileDialog
+            {
+                Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"
+            };
+            path = dialog.ShowDialog() == DialogResult.OK ? dialog.FileName : null;
+            TextInputTextBox.Text = inputOutput_.InputFromFile(path);
         }
 
         private void ExportToolStripButton_Click(object sender, EventArgs e)
