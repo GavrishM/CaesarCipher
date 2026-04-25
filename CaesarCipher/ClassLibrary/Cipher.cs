@@ -16,25 +16,54 @@ namespace ClassLibrary
 
         public string EncryptData(string originalText, int key)
         {
+            Char[] Chars = Alphabet.Chars;
             string result = "";
             int temp = 0;
+            key %= Chars.Length;
             foreach(char c in originalText)
             {
-                if (Alphabet.Chars.Contains(c))
+                if (Chars.Contains(c))
                 {
-
+                    temp = Array.IndexOf(Chars, c);
+                    temp += key;
+                    temp %= Chars.Length;
+                    //while (temp > Chars.Length -1)
+                    //{
+                    //    temp -= Chars.Length;
+                    //}
+                    result += Chars[temp];
+                }
+                else
+                {
+                    result += c;
                 }
             }
-            result = originalText;
-            //...
             return result;
         }
 
         public string DecryptData(string encryptedText, int key)
         {
+            Char[] Chars = Alphabet.Chars;
             string result = "";
-            result = encryptedText;
-            //...
+            int temp = 0;
+            key %= Chars.Length;
+            foreach (char c in encryptedText)
+            {
+                if (Chars.Contains(c))
+                {
+                    temp = Array.IndexOf(Chars, c);
+                    temp -= key;
+                    while (temp < 0)
+                    {
+                        temp += Chars.Length;
+                    }
+                    result += Chars[temp];
+                }
+                else
+                {
+                    result += c;
+                }
+            }
             return result;
         }
     }
