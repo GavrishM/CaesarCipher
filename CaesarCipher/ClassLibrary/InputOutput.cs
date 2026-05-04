@@ -27,6 +27,17 @@ namespace ClassLibrary
             result = text;
             return result;
         }
+        public bool CheckText(string text)
+        {
+            bool result = true;
+            Alphabet alphabet = new Alphabet();
+            foreach (char ch in text)
+            {
+                if (!alphabet.Chars.Contains(ch))
+                    result = false;
+            }
+            return result;
+        }
         public void OutputResult(string originalText, string encryptedText)
         {
             //dodelat

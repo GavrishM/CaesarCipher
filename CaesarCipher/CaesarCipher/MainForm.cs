@@ -19,7 +19,7 @@ namespace CaesarCipher
         public MainForm()
         {
             InitializeComponent();
-            alphabet_ = new Alphabet("main");
+            alphabet_ = new Alphabet();
             cipher_ = new Cipher(alphabet_);
             inputOutput_ = new InputOutput();
         }
@@ -44,17 +44,32 @@ namespace CaesarCipher
         private void CipherToolStripButton_Click(object sender, EventArgs e)
         {
             string originalText = TextInputTextBox.Text;
-            int key = inputOutput_.InputKey(InputKeyNumeric.Value);
-            string encryptedText = cipher_.EncryptData(originalText, key);
-            TextOutputTextBox.Text = encryptedText;
+            if (inputOutput_.CheckText(originalText))
+            {
+                int key = inputOutput_.InputKey(InputKeyNumeric.Value);
+                string encryptedText = cipher_.EncryptData(originalText, key);
+                TextOutputTextBox.Text = encryptedText;
+            }
+            else
+            {
+                MessageBox.Show("Ошибка! Неизвестные символы. Уберите, символы которых нет в алфавите и попробуйте снова.");
+            }
         }
 
         private void DecipherToolStripButton_Click(object sender, EventArgs e)
         {
+
             string encryptedText = TextInputTextBox.Text;
-            int key = inputOutput_.InputKey(InputKeyNumeric.Value);
-            string originalText = cipher_.DecryptData(encryptedText, key);
-            TextOutputTextBox.Text = originalText;
+            if (inputOutput_.CheckText(encryptedText))
+            {
+                int key = inputOutput_.InputKey(InputKeyNumeric.Value);
+                string originalText = cipher_.DecryptData(encryptedText, key);
+                TextOutputTextBox.Text = originalText;
+            }
+            else
+            {
+                MessageBox.Show("Ошибка! Неизвестные символы. Уберите, символы которых нет в алфавите и попробуйте снова.");
+            }
         }
 
         private void ClearToolStripButton_Click(object sender, EventArgs e)
@@ -64,6 +79,49 @@ namespace CaesarCipher
             TextOutputTextBox.Text = "";
         }
 
-        
+        private void AlphabetToolStripButton_Click(object sender, EventArgs e)
+        {
+            string str1 = "";
+            string str2 = "";
+            string str3 = "";
+            string str4 = "";
+            string str5 = "";
+            string str6 = "";
+            string a = alphabet_.Chars.ToString();
+            for(int i = 0; i < a.Length; i++)
+            {
+                if (i < 32)
+                {
+                    str1 += a[i];
+                }
+                else
+                {
+                    if (i < 64)
+                    {
+                        str2 += a[i];
+                    }
+                    else
+                    {
+                        if (i < 90)
+                        {
+                            str3 += a[i];
+                        }
+                        else
+                        {
+                            if (i < 116)
+                            {
+                                str4 += a[i];
+                            }
+                            else
+                            {
+                                //...
+                            }
+                        }
+                    }
+                }
+                }
+            string result=$"ru: {str1}\nRu: {str2}\nen: {str3}\nEn: {str4}\nNum: {str5}\nSym: {str6}";
+            MessageBox.Show(result);
+        }
     }
 }

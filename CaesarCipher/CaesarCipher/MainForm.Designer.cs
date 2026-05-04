@@ -39,6 +39,7 @@
             this.CipherToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.DecipherToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ClearToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.AlphabetToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).BeginInit();
             this.MainToolStrip.SuspendLayout();
@@ -84,10 +85,20 @@
             0,
             0,
             0});
+            this.InputKeyNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.InputKeyNumeric.Name = "InputKeyNumeric";
             this.InputKeyNumeric.Size = new System.Drawing.Size(800, 20);
             this.InputKeyNumeric.TabIndex = 3;
             this.InputKeyNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.InputKeyNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // MainToolStrip
             // 
@@ -96,7 +107,8 @@
             this.ExportToolStripButton,
             this.CipherToolStripButton,
             this.DecipherToolStripButton,
-            this.ClearToolStripButton});
+            this.ClearToolStripButton,
+            this.AlphabetToolStripButton});
             this.MainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.MainToolStrip.Name = "MainToolStrip";
             this.MainToolStrip.Size = new System.Drawing.Size(800, 25);
@@ -148,6 +160,15 @@
             this.ClearToolStripButton.Text = "Очистить поля ввода\\вывода";
             this.ClearToolStripButton.Click += new System.EventHandler(this.ClearToolStripButton_Click);
             // 
+            // AlphabetToolStripButton
+            // 
+            this.AlphabetToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("AlphabetToolStripButton.Image")));
+            this.AlphabetToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AlphabetToolStripButton.Name = "AlphabetToolStripButton";
+            this.AlphabetToolStripButton.Size = new System.Drawing.Size(75, 22);
+            this.AlphabetToolStripButton.Text = "Алфавит";
+            this.AlphabetToolStripButton.Click += new System.EventHandler(this.AlphabetToolStripButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +200,7 @@
         private System.Windows.Forms.TextBox TextOutputTextBox;
         private System.Windows.Forms.TextBox TextInputTextBox;
         private System.Windows.Forms.NumericUpDown InputKeyNumeric;
+        private System.Windows.Forms.ToolStripButton AlphabetToolStripButton;
     }
 }
 
