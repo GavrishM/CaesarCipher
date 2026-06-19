@@ -9,14 +9,15 @@ namespace ClassLibrary
     public class Cipher
     {
         public Alphabet Alphabet {  get; set; }
+        public Char[] Chars;
         public Cipher(Alphabet alphabet)
         {
             Alphabet = alphabet;
+            Chars = Alphabet.Chars;
         }
 
         public string EncryptData(string originalText, int key)
         {
-            Char[] Chars = Alphabet.Chars; //заменить на поле
             string result = "";
             int temp = 0;
             key %= Chars.Length;
@@ -39,7 +40,6 @@ namespace ClassLibrary
 
         public string DecryptData(string encryptedText, int key)
         {
-            Char[] Chars = Alphabet.Chars; //заменить на поле
             string result = "";
             int temp = 0;
             key %= Chars.Length;
