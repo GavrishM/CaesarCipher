@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CaesarCipher
 {
-    public partial class MainForm: Form
+    public partial class MainForm : Form
     {
         private Alphabet alphabet_;
         private Cipher cipher_;
@@ -39,9 +39,27 @@ namespace CaesarCipher
 
         private void ExportToolStripButton_Click(object sender, EventArgs e)
         {
-            string path = "";
-            inputOutput_.OutputResult("", "", "");
+            // Используем using, чтобы диалоговое окно корректно удалялось из памяти после использования
+            using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+            {
+                // Настройка диалогового окна (необязательно, но улучшает UX)
+                folderDialog.Description = "Выберите папку для экспорта";
+                folderDialog.ShowNewFolderButton = true; // Разрешить создание новой папки
+
+                // Показываем диалог и проверяем результат
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Если пользователь нажал ОК, получаем путь к папке
+                    string path = folderDialog.SelectedPath;
+
+                    int key = inputOutput_.InputKey(InputKeyNumeric.Value);
+                    string text = TextInputTextBox.Text;
+                    string result = TextOutputTextBox.Text;
+                    inputOutput_.OutputResult(text, result, path, key);
+                }
+            }
         }
+
 
         private void CipherToolStripButton_Click(object sender, EventArgs e)
         {
@@ -100,7 +118,7 @@ namespace CaesarCipher
             string str5 = "";
             string str6 = "";
             string a = alphabet_.Chars.ToString();
-            for(int i = 0; i < a.Length; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (i < 32)
                 {
@@ -131,8 +149,8 @@ namespace CaesarCipher
                         }
                     }
                 }
-                }
-            string result=$"ru: {str1}\nRu: {str2}\nen: {str3}\nEn: {str4}\nNum: {str5}\nSym: {str6}";
+            }
+            string result = $"ru: {str1}\nRu: {str2}\nen: {str3}\nEn: {str4}\nNum: {str5}\nSym: {str6}";
             MessageBox.Show(result);
         }
 
@@ -146,7 +164,7 @@ namespace CaesarCipher
             else
             {
                 animation_ = true;
-                AnimationToolStripButton.BackColor= Color.Green;
+                AnimationToolStripButton.BackColor = Color.Green;
             }
         }
     }

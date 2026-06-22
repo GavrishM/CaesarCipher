@@ -40,7 +40,17 @@ namespace ClassLibrary
         }
         public void OutputResult(string originalText, string encryptedText, string filePath, int key)
         {
-            //dodelat
+            // 1. Формируем полный путь к файлу (путь к папке + имя файла)
+            string fullPath = Path.Combine(filePath, "result.txt");
+
+            // 2. Формируем текст, который будет записан в файл
+            //Environment.NewLine добавляет перенос строки
+            string content = $"{originalText};{Environment.NewLine}" +
+                             $"{encryptedText};{Environment.NewLine}" +
+                             $"{key}";
+
+            // 3. Записываем данные в файл
+            File.WriteAllText(fullPath, content);
         }
     }
 }
