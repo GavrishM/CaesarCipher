@@ -40,7 +40,7 @@ namespace CaesarCipher
         private void ExportToolStripButton_Click(object sender, EventArgs e)
         {
             string path = "";
-            inputOutput_.OutputResult("", "");
+            inputOutput_.OutputResult("", "", "");
         }
 
         private void CipherToolStripButton_Click(object sender, EventArgs e)

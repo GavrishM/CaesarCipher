@@ -38,7 +38,7 @@ namespace ClassLibrary
             }
             return result;
         }
-        public void OutputResult(string originalText, string encryptedText)
+        public void OutputResult(string originalText, string encryptedText, string filePath, int key)
         {
             //dodelat
         }
