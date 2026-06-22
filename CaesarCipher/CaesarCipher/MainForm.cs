@@ -16,12 +16,14 @@ namespace CaesarCipher
         private Alphabet alphabet_;
         private Cipher cipher_;
         private InputOutput inputOutput_;
+        private bool animation_;
         public MainForm()
         {
             InitializeComponent();
             alphabet_ = new Alphabet();
             cipher_ = new Cipher(alphabet_);
             inputOutput_ = new InputOutput();
+            animation_ = false;
         }
 
         private void ImportToolStripButton_Click(object sender, EventArgs e)
@@ -49,6 +51,11 @@ namespace CaesarCipher
                 int key = inputOutput_.InputKey(InputKeyNumeric.Value);
                 string encryptedText = cipher_.EncryptData(originalText, key);
                 TextOutputTextBox.Text = encryptedText;
+                if (animation_)
+                {
+                    AnimationForm form = new AnimationForm(originalText, key, "Cipher", alphabet_);
+                    form.Show();
+                }
             }
             else
             {
@@ -65,6 +72,11 @@ namespace CaesarCipher
                 int key = inputOutput_.InputKey(InputKeyNumeric.Value);
                 string originalText = cipher_.DecryptData(encryptedText, key);
                 TextOutputTextBox.Text = originalText;
+                if (animation_)
+                {
+                    AnimationForm form = new AnimationForm(encryptedText, key, "Decipher", alphabet_);
+                    form.Show();
+                }
             }
             else
             {
@@ -122,6 +134,20 @@ namespace CaesarCipher
                 }
             string result=$"ru: {str1}\nRu: {str2}\nen: {str3}\nEn: {str4}\nNum: {str5}\nSym: {str6}";
             MessageBox.Show(result);
+        }
+
+        private void AnimationToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (animation_)
+            {
+                animation_ = false;
+                AnimationToolStripButton.BackColor = Color.Red;
+            }
+            else
+            {
+                animation_ = true;
+                AnimationToolStripButton.BackColor= Color.Green;
+            }
         }
     }
 }

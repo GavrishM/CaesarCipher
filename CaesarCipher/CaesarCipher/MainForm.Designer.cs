@@ -40,6 +40,7 @@
             this.DecipherToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ClearToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.AlphabetToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.AnimationToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InputKeyNumeric)).BeginInit();
             this.MainToolStrip.SuspendLayout();
@@ -108,7 +109,8 @@
             this.CipherToolStripButton,
             this.DecipherToolStripButton,
             this.ClearToolStripButton,
-            this.AlphabetToolStripButton});
+            this.AlphabetToolStripButton,
+            this.AnimationToolStripButton});
             this.MainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.MainToolStrip.Name = "MainToolStrip";
             this.MainToolStrip.Size = new System.Drawing.Size(800, 25);
@@ -169,6 +171,17 @@
             this.AlphabetToolStripButton.Text = "Алфавит";
             this.AlphabetToolStripButton.Click += new System.EventHandler(this.AlphabetToolStripButton_Click);
             // 
+            // AnimationToolStripButton
+            // 
+            this.AnimationToolStripButton.BackColor = System.Drawing.Color.Red;
+            this.AnimationToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.AnimationToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("AnimationToolStripButton.Image")));
+            this.AnimationToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AnimationToolStripButton.Name = "AnimationToolStripButton";
+            this.AnimationToolStripButton.Size = new System.Drawing.Size(68, 22);
+            this.AnimationToolStripButton.Text = "Анимация";
+            this.AnimationToolStripButton.Click += new System.EventHandler(this.AnimationToolStripButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,6 +214,7 @@
         private System.Windows.Forms.TextBox TextInputTextBox;
         private System.Windows.Forms.NumericUpDown InputKeyNumeric;
         private System.Windows.Forms.ToolStripButton AlphabetToolStripButton;
+        private System.Windows.Forms.ToolStripButton AnimationToolStripButton;
     }
 }
 

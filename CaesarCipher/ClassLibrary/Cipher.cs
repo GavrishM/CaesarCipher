@@ -9,7 +9,7 @@ namespace ClassLibrary
     public class Cipher
     {
         public Alphabet Alphabet {  get; set; }
-        public Char[] Chars;
+        public char[] Chars;
         public Cipher(Alphabet alphabet)
         {
             Alphabet = alphabet;
