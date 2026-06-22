@@ -8,7 +8,7 @@ namespace ClassLibrary
 {
     public class Cipher
     {
-        public Alphabet Alphabet {  get; set; }
+        public Alphabet Alphabet { get; set; }
         public char[] Chars;
         public Cipher(Alphabet alphabet)
         {
@@ -19,48 +19,49 @@ namespace ClassLibrary
         public string EncryptData(string originalText, int key)
         {
             string result = "";
-            int temp = 0;
-            key %= Chars.Length;
-            foreach(char c in originalText)
+            int temp = 0; //Id символа в алфавите
+            key %= Chars.Length; //Упрощаем ключ
+            foreach (char c in originalText) //Цикл
             {
-                if (Chars.Contains(c))
+                if (Chars.Contains(c)) //Если Алфавит содержит Символ Тогда
                 {
-                    temp = Array.IndexOf(Chars, c);
-                    temp += key;
-                    temp %= Chars.Length;
-                    result += Chars[temp];
+                    temp = Array.IndexOf(Chars, c); //Находим Id символа
+                    temp += key; //Увеличиваем Id символа
+                    temp %= Chars.Length; //Корректируем Id символа
+                    result += Chars[temp]; //Добавляем к результату полученный символ
                 }
-                else
+                else //Иначе
                 {
-                    result += c;
+                    result += c; //Добавляем символ без изменений
                 }
             }
-            return result;
+            return result; //Возвращаем результат
         }
 
         public string DecryptData(string encryptedText, int key)
         {
             string result = "";
-            int temp = 0;
-            key %= Chars.Length;
-            foreach (char c in encryptedText)
+            int temp = 0; //Id символа в алфавите
+            key %= Chars.Length; //Упрощаем ключ
+            foreach (char c in encryptedText) //Цикл
             {
-                if (Chars.Contains(c))
+                if (Chars.Contains(c)) //Если Алфавит содержит Символ Тогда
                 {
-                    temp = Array.IndexOf(Chars, c);
-                    temp -= key;
-                    while (temp < 0)
+                    temp = Array.IndexOf(Chars, c); //Находим Id символа
+                    temp -= key; //Уменьшаем Id символа
+                    while (temp < 0) //Корректируем Id символа
                     {
                         temp += Chars.Length;
                     }
-                    result += Chars[temp];
+                    result += Chars[temp]; //Добавляем к результату полученный символ
                 }
-                else
+                else //Иначе
                 {
-                    result += c;
+                    result += c; //Добавляем символ без изменений
                 }
             }
-            return result;
+            return result; //Возвращаем результат
         }
     }
 }
+
