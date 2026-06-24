@@ -104,7 +104,7 @@ namespace CaesarCipher
 
         private void ClearToolStripButton_Click(object sender, EventArgs e)
         {
-            InputKeyNumeric.Value = 0;
+            InputKeyNumeric.Value = 1;
             TextInputTextBox.Text = "";
             TextOutputTextBox.Text = "";
         }

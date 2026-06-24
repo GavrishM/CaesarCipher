@@ -45,9 +45,11 @@ namespace ClassLibrary
 
             // 2. Формируем текст, который будет записан в файл
             //Environment.NewLine добавляет перенос строки
-            string content = $"{originalText};{Environment.NewLine}" +
-                             $"{encryptedText};{Environment.NewLine}" +
-                             $"{key}";
+            string content = $"Текст:" +
+                             $"{originalText}.{Environment.NewLine}" +
+                             $"Результат:" +
+                             $"{encryptedText}.{Environment.NewLine}" +
+                             $"Ключ: {key}";
 
             // 3. Записываем данные в файл
             File.WriteAllText(fullPath, content);
