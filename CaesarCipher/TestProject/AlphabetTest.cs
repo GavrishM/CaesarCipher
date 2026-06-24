@@ -12,16 +12,16 @@ namespace TestProject
         public void ConstructorTest()
         {
             
-            Alphabet alphabet = new Alphabet("main");
+            Alphabet alphabet = new Alphabet();
             char[] expected = new char[161];
 
             expected = ("абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-            /*       */+ "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-            /*       */+ "abcdefghijklmnopqrstuvwxyz"
-            /*       */+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            /*       */+ "0123456789"
-            /*       */+ " .,;:-=+_!&?/()`~@№#$%^*[{}]|'<>"
-            /*       */+ '"'
+            /*       */+"АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+            /*       */+"abcdefghijklmnopqrstuvwxyz"
+            /*       */+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            /*       */+"0123456789"
+            /*       */+" .,;:-=+_!&?/()`~@№#$%^*[{}]|'<>"
+            /*       */+'"'
             /*       */).ToCharArray();
 
             CollectionAssert.AreEqual(expected, alphabet.Chars);

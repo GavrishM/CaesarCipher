@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphabetTest.cs" />
+    <Compile Include="CipherTest.cs" />
+    <Compile Include="InputOutputTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -117,35 +117,25 @@ namespace CaesarCipher
             string str4 = "";
             string str5 = "";
             string str6 = "";
-            string a = alphabet_.Chars.ToString();
+            string a = new string(alphabet_.Chars);
             for (int i = 0; i < a.Length; i++)
             {
                 if (i < 32)
-                {
-                    str1 += a[i];
-                }
+                { str1 += a[i]; }
                 else
                 {
                     if (i < 64)
-                    {
-                        str2 += a[i];
-                    }
+                    { str2 += a[i]; }
                     else
                     {
                         if (i < 90)
-                        {
-                            str3 += a[i];
-                        }
+                        { str3 += a[i]; }
                         else
                         {
                             if (i < 116)
-                            {
-                                str4 += a[i];
-                            }
+                            { str4 += a[i]; }
                             else
-                            {
-                                //...
-                            }
+                            { /*...*/ }
                         }
                     }
                 }
