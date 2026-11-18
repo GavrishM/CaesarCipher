@@ -34,7 +34,14 @@ namespace CaesarCipher
                 Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"
             };
             path = dialog.ShowDialog() == DialogResult.OK ? dialog.FileName : null;
-            TextInputTextBox.Text = File.ReadAllText(path);
+            if (path != null)
+            {
+                TextInputTextBox.Text = File.ReadAllText(path);
+            }
+            else
+            {
+                MessageBox.Show("Путь не может быть пустым");
+            }
         }
 
         private void ExportToolStripButton_Click(object sender, EventArgs e)
