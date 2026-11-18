@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CaesarCipher
 {
@@ -15,14 +17,12 @@ namespace CaesarCipher
     {
         private Alphabet alphabet_;
         private Cipher cipher_;
-        private InputOutput inputOutput_;
         private bool animation_;
         public MainForm()
         {
             InitializeComponent();
             alphabet_ = new Alphabet();
             cipher_ = new Cipher(alphabet_);
-            inputOutput_ = new InputOutput();
             animation_ = false;
         }
 
@@ -34,7 +34,7 @@ namespace CaesarCipher
                 Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"
             };
             path = dialog.ShowDialog() == DialogResult.OK ? dialog.FileName : null;
-            TextInputTextBox.Text = inputOutput_.InputFromFile(path);
+            TextInputTextBox.Text = File.ReadAllText(path);
         }
 
         private void ExportToolStripButton_Click(object sender, EventArgs e)
@@ -52,10 +52,25 @@ namespace CaesarCipher
                     // Если пользователь нажал ОК, получаем путь к папке
                     string path = folderDialog.SelectedPath;
 
-                    int key = inputOutput_.InputKey(InputKeyNumeric.Value);
+                    int key = Convert.ToInt32(InputKeyNumeric.Value);
                     string text = TextInputTextBox.Text;
                     string result = TextOutputTextBox.Text;
-                    inputOutput_.OutputResult(text, result, path, key);
+                    //Выводим результат в файл <
+                    {
+                        // 1. Формируем полный путь к файлу (путь к папке + имя файла)
+                        string fullPath = Path.Combine(path, "result.txt");
+
+                        // 2. Формируем текст, который будет записан в файл
+                        //Environment.NewLine добавляет перенос строки
+                        string content = $"Текст: " +
+                                         $"{text}.{Environment.NewLine}" +
+                                         $"Результат: " +
+                                         $"{result}.{Environment.NewLine}" +
+                                         $"Ключ: {key}";
+
+                        // 3. Записываем данные в файл
+                        File.WriteAllText(fullPath, content);
+                    }//>
                 }
             }
         }
@@ -64,9 +79,17 @@ namespace CaesarCipher
         private void CipherToolStripButton_Click(object sender, EventArgs e)
         {
             string originalText = TextInputTextBox.Text;
-            if (inputOutput_.CheckText(originalText))
+            //Проверяем текст на отсутствие символов не из алфавита
+            bool checkTextResult = true;
+            foreach (char ch in originalText)
             {
-                int key = inputOutput_.InputKey(InputKeyNumeric.Value);
+                if (!alphabet_.Chars.Contains(ch))
+                    checkTextResult = false;
+            }
+            //Если символов нет, тогда шифруем текст
+            if (checkTextResult)
+            {
+                int key = Convert.ToInt32(InputKeyNumeric.Value);
                 string encryptedText = cipher_.EncryptData(originalText, key);
                 TextOutputTextBox.Text = encryptedText;
                 if (animation_)
@@ -85,9 +108,17 @@ namespace CaesarCipher
         {
 
             string encryptedText = TextInputTextBox.Text;
-            if (inputOutput_.CheckText(encryptedText))
+            //Проверяем текст на отсутствие символов не из алфавита
+            bool checkTextResult = true;
+            foreach (char ch in encryptedText)
             {
-                int key = inputOutput_.InputKey(InputKeyNumeric.Value);
+                if (!alphabet_.Chars.Contains(ch))
+                    checkTextResult = false;
+            }
+            //Если символов нет, тогда дешифруем текст
+            if (checkTextResult)
+            {
+                int key = Convert.ToInt32(InputKeyNumeric.Value);
                 string originalText = cipher_.DecryptData(encryptedText, key);
                 TextOutputTextBox.Text = originalText;
                 if (animation_)
