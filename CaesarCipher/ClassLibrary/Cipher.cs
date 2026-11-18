@@ -8,12 +8,10 @@ namespace ClassLibrary
 {
     public class Cipher
     {
-        public Alphabet Alphabet { get; set; }
         public char[] Chars;
         public Cipher(Alphabet alphabet)
         {
-            Alphabet = alphabet;
-            Chars = Alphabet.Chars;
+            Chars = alphabet.Chars;
         }
 
         public string EncryptData(string originalText, int key)

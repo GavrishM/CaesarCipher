@@ -17,10 +17,8 @@ namespace TestProject
             Alphabet a = new Alphabet();
             Cipher cipher = new Cipher(a);
 
-            Alphabet expectedAlphabet = a;
             char[] expectedChars = a.Chars;
 
-            Assert.AreEqual(expectedAlphabet, cipher.Alphabet);
             CollectionAssert.AreEqual(expectedChars, cipher.Chars);
         }
     }
