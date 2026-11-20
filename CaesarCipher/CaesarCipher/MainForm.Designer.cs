@@ -82,7 +82,7 @@
             this.InputKeyNumeric.Dock = System.Windows.Forms.DockStyle.Top;
             this.InputKeyNumeric.Location = new System.Drawing.Point(0, 0);
             this.InputKeyNumeric.Maximum = new decimal(new int[] {
-            300,
+            161,
             0,
             0,
             0});

@@ -36,7 +36,14 @@ namespace CaesarCipher
             path = dialog.ShowDialog() == DialogResult.OK ? dialog.FileName : null;
             if (path != null)
             {
-                TextInputTextBox.Text = File.ReadAllText(path);
+                if (File.ReadAllText(path) == null || File.ReadAllText(path) == "")
+                {
+                    TextInputTextBox.Text = File.ReadAllText(path);
+                }
+                else
+                {
+                    MessageBox.Show("Файл пустой. Нечего шифровать!");
+                }
             }
             else
             {
