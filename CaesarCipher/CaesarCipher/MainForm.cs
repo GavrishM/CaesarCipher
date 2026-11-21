@@ -180,7 +180,12 @@ namespace CaesarCipher
                             if (i < 116)
                             { str4 += a[i]; }
                             else
-                            { /*...*/ }
+                            {
+                                if (i < 126)
+                                { str5 += a[i]; }
+                                else
+                                { str6 += a[i]; }
+                            }
                         }
                     }
                 }
